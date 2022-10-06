@@ -20,20 +20,15 @@ class ToDoLimitOffsetPagination(LimitOffsetPagination):
 class ProjectViewSet(ModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.all()
-    pagination_class = ProjectLimitOffsetPagination
-    filter_class = ProjectFilter
+    # pagination_class = ProjectLimitOffsetPagination
+    # filter_class = ProjectFilter
 
 
-class ToDoViewSet(mixins.CreateModelMixin,
-                  mixins.RetrieveModelMixin,
-                  mixins.UpdateModelMixin,
-                  mixins.DestroyModelMixin,
-                  mixins.ListModelMixin,
-                  GenericViewSet):
+class ToDoViewSet(ModelViewSet):
     serializer_class = ToDoSerializer
     queryset = ToDo.objects.all()
-    pagination_class = ToDoLimitOffsetPagination
-    filter_class = ToDoFilter
+    # pagination_class = ToDoLimitOffsetPagination
+    # filter_class = ToDoFilter
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
