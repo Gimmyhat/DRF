@@ -6,6 +6,9 @@ const ProjectItem = ({project}) => {
     return (
         <tr>
             <td>
+                {project.id}
+            </td>
+            <td>
                 <Link to={`/projects/${project.id}`}>{project.name}</Link>
             </td>
             <td>
@@ -25,6 +28,9 @@ const ProjectList = (
 ) => {
     return (
         <table>
+            <th>
+                ID
+            </th>
             <th>
                 Name
             </th>

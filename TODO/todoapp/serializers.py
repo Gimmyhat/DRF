@@ -6,10 +6,12 @@ from .models import ToDo
 class ProjectSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = ['id', 'name', 'users', 'repository']
 
 
 class ToDoSerializer(HyperlinkedModelSerializer):
+    project = ProjectSerializer
+
     class Meta:
         model = ToDo
-        exclude = ('is_active',)
+        fields = '__all__'
