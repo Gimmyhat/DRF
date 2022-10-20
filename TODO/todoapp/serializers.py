@@ -10,8 +10,7 @@ class ProjectSerializer(HyperlinkedModelSerializer):
 
 
 class ToDoSerializer(HyperlinkedModelSerializer):
-    project = ProjectSerializer
-
     class Meta:
         model = ToDo
+        # exclude = ('is_active',)
         fields = '__all__'
