@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'todoapp',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -137,7 +138,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     # 'PAGE_SIZE': 100
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
@@ -178,4 +179,8 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+GRAPHENE = {
+    "SCHEMA": "TODO.schema.schema"
 }
