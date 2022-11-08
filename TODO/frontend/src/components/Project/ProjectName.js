@@ -1,6 +1,5 @@
 import React from 'react'
-import {Link, useParams} from "react-router-dom";
-import project from "./Project";
+import {useParams} from "react-router-dom";
 
 
 const ProjectItem = ({project}) => {
@@ -20,8 +19,8 @@ const ProjectItem = ({project}) => {
 }
 
 const ProjectName = ({projects}) => {
-    let {nameId} = useParams()
-    let filter_project = projects.filter((project) => project.name.includes(parseInt(nameId)))
+    let { nameId } = useParams()
+    let filter_project = projects.filter((project) => project.id === parseInt(nameId))
     return (
         <table>
             <th>

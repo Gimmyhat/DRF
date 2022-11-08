@@ -30,13 +30,13 @@ class ToDoViewSet(ModelViewSet):
     # pagination_class = ToDoLimitOffsetPagination
     # filter_class = ToDoFilter
 
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.active_toggle(instance)
-        serializer = self.get_serializer(instance, data=self.get_serializer(instance).data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
-
-    def active_toggle(self, instance):
-        instance.is_active = False
+    # def destroy(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     self.active_toggle(instance)
+    #     serializer = self.get_serializer(instance, data=self.get_serializer(instance).data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data)
+    #
+    # def active_toggle(self, instance):
+    #     instance.is_active = False
