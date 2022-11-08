@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 const UserItem = ({user}) => {
     return (
@@ -21,21 +22,17 @@ const UserItem = ({user}) => {
 
 const UserList = ({users}) => {
     return (
-        <table>
-            <th>
-                Username
-            </th>
-            <th>
-                First name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                Email
-            </th>
-            {users.map((user_) => <UserItem user={user_}/>)}
-        </table>
+        <div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+                {users.map((user_) => <UserItem user={user_} />)}
+            </table>
+        </div>
     )
 }
 export default UserList;
